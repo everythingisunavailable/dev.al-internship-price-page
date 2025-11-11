@@ -130,6 +130,7 @@ nav ul .title{
     border: 2px solid var(--color-border);
     border-radius: 17px;
     background: linear-gradient(var(--color-bg-light), var(--color-bg), var(--color-bg));
+    transition: background 1s ease-in-out;
 }
 
 .prices .cards .card-item .ribbon{
@@ -144,6 +145,12 @@ nav ul .title{
     box-shadow: 0 0 10px 1px var(--color-accent-blue);
     color: var(--color-bg);
     font-weight: bold;
+    animation: glow-ani 2s ease-in-out infinite;
+}
+@keyframes glow-ani {
+    0%{box-shadow: 0 0 10px 1px var(--color-accent-blue);}
+    50%{box-shadow: 0 0 5px 1px var(--color-accent-blue);}
+    100%{box-shadow: 0 0 10px 1px var(--color-accent-blue);}
 }
 @media only screen and (max-width: 780px) {
     .prices .cards{
@@ -178,6 +185,7 @@ nav ul .title{
 
 .card-button{
     all: unset;
+    position: relative;
     width: calc(100% - 2rem);
     height: 2.5rem;
     border: 2px solid var(--color-border);
@@ -186,8 +194,13 @@ nav ul .title{
     text-align: center;
     font-weight: bold;
     cursor: pointer;
+    scale: 1;
+    transition: all 0.2s ease-out;
 }
-
+.card-button:hover{
+    scale: 1.07;
+    filter: brightness(1.5);
+}
 .prices .cards .card-item .price-gradient{
     font-size: 2rem;
     font-weight: 900;
@@ -268,4 +281,26 @@ input:checked + .slider::before {
     width: 1px;
     height: 1px;
     box-shadow: 0 0 500px 70px var(--color-accent-blue);
+}
+
+.price, .price-yearly{
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.price-yearly{
+    display: none;
+}
+.prices:has(input:checked) .price {
+  display: none;
+}
+.prices:has(input:checked) .price-yearly {
+  display: block;
 }
