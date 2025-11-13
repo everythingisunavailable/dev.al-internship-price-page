@@ -30,6 +30,7 @@
 }
 
 body{
+    position: relative;
     min-height: 100vh;
     width: 100%;
     background: linear-gradient(var(--color-bg), var(--color-bg), var(--color-bg-light));
@@ -39,6 +40,7 @@ body{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+    padding-bottom: 10rem;
 }
 
 a{
@@ -312,8 +314,9 @@ input:checked + .slider::before {
 }
 
 footer{
-	position: fixed;
-	bottom: 0;
+	position: absolute;
+    left: 0;
+	bottom: 0;  
 	width: 100%;
 	height: 6rem;
 	border-top: 1px solid var(--color-border);
@@ -321,6 +324,7 @@ footer{
 	align-items: center;
 	padding-left: 25%;
 }
+
 .contacts{
 	width: fit-content;
 }
@@ -436,10 +440,22 @@ form{
 }
 
 .expand{
-	width: 100%;
+    width: 100%;
 	grid-column: span 2;
 }
 
+@media only screen and (max-width: 1500px) {
+    form{
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: repeat(16, auto);
+    }
+    .form-section{
+        width: 100%;
+    }
+    .expand{
+        grid-column: span 1;
+    }
+}
 
 label{
 	display: flex;
@@ -478,9 +494,39 @@ fieldset{
 	border-radius: 10px;
 	border: 2px dashed var(--color-border);
 	padding-left: 1rem;
+    background: linear-gradient(var(--color-bg-light), var(--color-bg));
 }
 
 .align-center{
 	align-items: center;
 	gap: 7px;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+}
+
+.buttons button{
+    all: unset;
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+.buttons button:hover{
+    filter: brightness(1.5);
+}
+
+.buttons .reset{
+    border: 2px solid var(--color-border);
+    background-color: var(--color-bg-light);
+}
+
+.buttons .submit{
+    color: var(--color-bg);
+    background-color: var(--color-accent-blue);
 }
