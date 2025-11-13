@@ -36,6 +36,9 @@ body{
     color: var(--color-text-primary);
     font-family: var(--font-family);
 	scroll-behavior: smooth;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 a{
@@ -58,22 +61,30 @@ h2{
 }
 
 header{
+	width: 100%;
 	position: sticky;
 	top: 0;
 	z-index: 100;
+	display: flex;
+	justify-content: center;
+	border-bottom: 2px solid var(--color-border);
+	background-color: var(--color-bg-light);
 }
 
 nav{
     height: 4rem;
+	width: 1500px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid var(--color-border);
-    background-color: var(--color-bg-light);
 }
 nav ul li a:hover{
     color: var(--color-accent-blue-hover);
     transition: color 0.2s ease-out;
+}
+
+main{
+	max-width: 1500px;
 }
 .active{
 	color: var(--color-accent-blue);
@@ -159,20 +170,6 @@ nav ul .title{
     0%{box-shadow: 0 0 10px 1px var(--color-accent-blue);}
     50%{box-shadow: 0 0 5px 1px var(--color-accent-blue);}
     100%{box-shadow: 0 0 10px 1px var(--color-accent-blue);}
-}
-@media only screen and (max-width: 780px) {
-    .cards{
-        grid-template-columns: repeat(1, auto);
-        grid-template-rows: repeat(3, auto);
-    }
-    .cards .card-item{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    nav ul{
-        padding-right: 0;
-    }
 }
 
 .prices .cards .card-item > *{
@@ -285,10 +282,11 @@ input:checked + .slider::before {
     display: block;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 15%;
     width: 1px;
     height: 1px;
-    box-shadow: 0 0 500px 70px var(--color-accent-blue);
+    box-shadow: 0 0 1000px 50px var(--color-accent-blue);
+	z-index: 100;
 }
 
 .price, .price-yearly{
@@ -323,6 +321,9 @@ footer{
 	align-items: center;
 	padding-left: 25%;
 }
+.contacts{
+	width: fit-content;
+}
 
 .contacts .subtext{
 	margin-left: 1rem;
@@ -339,25 +340,33 @@ footer{
 	line-height: 3.5rem;
 }
 
+.badges{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 7px;
+}
+
 .badge{
 	border: 2px solid var(--color-border);
 	padding: 10px;
 	border-radius: 20px;
 	background-color: var(--color-bg-light);
+	font-size: var(--font-size-badge);
 }
 
 .card {
-  perspective: 1000px; /* Enables 3D space */
+	perspective: 1000px;
+	/* width: 26rem; */
 }
 .card img{
-	width: 10rem;
+	width: 6rem;
 	border-radius: 50%;
 }
 
 .card-inner {
   position: relative;
   transition: transform 0.8s;
-  transform-style: preserve-3d; /* Keeps both sides visible */
+  transform-style: preserve-3d;
 }
 
 .card:hover .card-inner, .card:focus-within .card-inner  {
@@ -376,6 +385,13 @@ footer{
 	border: 2px solid var(--color-border);
     border-radius: 17px;
     background: linear-gradient(var(--color-bg-light), var(--color-bg), var(--color-bg));
+	padding-inline: 5rem;
+}
+
+@media only screen and (max-width: 1000px) {
+	.card-front, .card-back{
+		padding-inline: 1rem;
+	}
 }
 
 .card-back {
@@ -383,4 +399,88 @@ footer{
 	position: absolute;
 	top: 0;
 	left: 0;
+}
+
+@media only screen and (max-width: 780px) {
+    .cards{
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: repeat(3, auto);
+    }
+    .cards .card-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul{
+        padding-right: 0;
+    }
+	.card-front, .card-back{
+		padding-inline: 4rem;
+	}
+}
+
+.form-section{
+	width: 1500px;
+}
+
+form{
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(2, 50%);
+	grid-template-rows: repeat(10, auto);
+	gap: 10px;
+	padding: 2rem;
+	border: 2px solid var(--color-border);
+	border-radius: 17px;
+	background: linear-gradient(var(--color-bg-light), var(--color-bg-light), var(--color-bg));
+}
+
+.expand{
+	width: 100%;
+	grid-column: span 2;
+}
+
+
+label{
+	display: flex;
+	flex-direction: column;
+	color: var(--color-text-primary);
+	font-weight: bold;
+}
+	
+.flex-row{
+	display: flex;
+	flex-direction: row;
+}
+
+input, select, textarea{
+	height: 2.5rem;
+	border: 2px solid var(--color-border);
+	border-radius: 10px;
+	padding-left: 10px;
+	background-color: var(--color-bg);
+	color: var(--color-text-primary);
+}
+
+textarea{
+	height: 10rem;
+	padding-top: 1rem;
+}
+
+.file{
+	padding-top: 7px;
+}
+
+fieldset{
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	border-radius: 10px;
+	border: 2px dashed var(--color-border);
+	padding-left: 1rem;
+}
+
+.align-center{
+	align-items: center;
+	gap: 7px;
 }

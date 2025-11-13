@@ -20,14 +20,84 @@
         </nav>
     </header>
 
-	<div class="form-section">
-		<div class="top-header">
-			<h1>Contact Us</h1>
-			<p class="subtext">We usually reply within one business day.</p>
+	<main>
+		<div class="form-section">
+			<div class="top-header">
+				<h1>Contact Us</h1>
+				<p class="subtext">We usually reply within one business day.</p>
+			</div>
+
+			<form action="#" class="card-item">
+
+				<label>Full name*
+  					<input type="text" placeholder="Ardit Shala" required>
+				</label>
+				<label>Email*
+					<input type="email" name="email" required placeholder="email@example.com">
+				</label>
+				<label>Phone
+					<input type="tel" name="tel" placeholder="+355 69 123 4567">
+				</label>
+				<label>Company
+					<input type="text" placeholder="Aurora LLC">
+				</label>
+				<label>Subject*
+					<input type="text" placeholder="Request a demo" required>
+				</label>
+				<label>Topic
+					<select name="topic">
+						<option value="default" selected disabled>Select a topic...</option>
+						<option value="sales">Sales</option>
+						<option value="support">Support</option>
+						<option value="billing">Billing</option>
+						<option value="partner">Partner</option>
+					</select>
+				</label>
+				<label class="expand">Message*
+					<textarea placeholder="Tell us about your needs..."></textarea>
+				</label>
+				<label>Preffered date
+					<input type="date" name="date">
+				</label>
+				<label>Preffered time
+					<input type="time" name="time">
+				</label>
+				<label>Website
+					<input type="text" placeholder="https://example.com">
+				</label>
+				<label>Budget(rought)
+					<input type="range" name="range">
+					<span class="subtext">1=Small - 5=Large</span>
+				</label>
+				<label class="expand">Attachment(RFP, brief, etc.)
+					<input type="file" name="file" class="file">
+				</label>
+				<fieldset class="expand flex-row">
+					<legend>How can we help?</legend>
+					<label class="flex-row align-center">
+						<input type="radio" name="help">
+					Demo</label>
+					<label class="flex-row align-center">
+						<input type="radio" name="help">
+					Quote</label>
+					<label class="flex-row align-center">
+						<input type="radio" name="help">
+					Support</label>
+				</fieldset>
+				<div class="terms" class="expand flex-row">
+					<label class="flex-row expand">
+						<input type="checkbox" name="subscribe">
+					Subscribe to newsletter</label>
+					<label class="flex-row">
+						<input type="checkbox" name="website" required>
+					I consent to having this website store my submitted information*</label>
+				</div>
+				<div class="buttons expand">
+					<button class="reset">Reset</button>
+					<button class="submit" type="submit">Send Message</button>
+				</div>
+			</form>
 		</div>
-		<form action="#" class="card-item">
-			
-		</form>
-	</div>
+	</main>
 </body>
 </html>
